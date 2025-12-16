@@ -31,6 +31,6 @@ menuLinks.forEach((obj) => {
 })
 
 
-main.appendChild(topMenuEl)
 main.appendChild(heading)
+body.appendChild(topMenuEl)
 body.appendChild(main)
