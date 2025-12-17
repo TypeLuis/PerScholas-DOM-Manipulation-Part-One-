@@ -85,7 +85,6 @@ topMenuEl.addEventListener("click", (e) => {
 
     clicked.classList.add("active")
 
-    console.log(subMenu.style.top)
     if(parseInt(subMenu.style.top) == 0) {
         buildSubmenu(linkObj)
         subMenu.style.top = "100%"
