@@ -67,36 +67,29 @@ topMenuEl.addEventListener("click", (e) => {
     topMenuLinks.forEach((e) => e.classList.remove("active"))
 
     
-    if(!wasActive) clicked.classList.add("active")
     
     // let linkObj
     // menuLinks.forEach((obj) => {
     //     if(obj.text === clicked.textContent) linkObj = obj
     // })
-
+        
     // simpler option
     const linkObj = menuLinks.find(obj => obj.text === clicked.textContent)
-
+    
     // ? after the property is called optional chaining, stops and returns undefined instead of crashing
     //  instead of linkObj && linkObj.sublinks linkObj?.subLinks works just as well
     if (wasActive || !linkObj?.subLinks) {
         subMenu.style.top = "0"
         return
     }
-    // subMenu.style.top = "0"
 
-    // requestAnimationFrame(subMenu.style.top)
-    if(linkObj.subLinks){
-        console.log(subMenu.style.top)
-        if(subMenu.style.top === "100%") subMenu.style.top = "0";
-        else {
-            buildSubmenu(linkObj)
-            subMenu.style.top = "100%"
-        }
-    }
-    else subMenu.style.top = "0"
+    clicked.classList.add("active")
 
-    // subMenu.style.top = linkObj.subLinks ? "100%" : "0"
+    buildSubmenu(linkObj)
+    subMenu.style.top = "0"
+    requestAnimationFrame(() => {
+      subMenu.style.top = "100%"
+    })
 })
 
 subMenu.addEventListener("click", (e) => {
