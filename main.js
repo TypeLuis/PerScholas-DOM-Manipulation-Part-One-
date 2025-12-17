@@ -62,6 +62,8 @@ topMenuEl.addEventListener("click", (e) => {
     e.preventDefault()
     if(e.target === topMenuEl) return
     const clicked = e.target
+    // console.log(e.target.text)
+    if(e.target.text === "about") heading.textContent = e.target.text.toUpperCase()
     const wasActive = clicked.classList.contains("active")
 
     topMenuLinks.forEach((e) => e.classList.remove("active"))
@@ -101,6 +103,9 @@ topMenuEl.addEventListener("click", (e) => {
 subMenu.addEventListener("click", (e) => {
     e.preventDefault()
     if (e.target.tagName !== "A") return
+    subMenu.style.top = "0"
+    topMenuLinks.forEach((e) => e.classList.remove("active"))
+    heading.textContent = e.target.text.toUpperCase()
 })
 
 function buildSubmenu(linkObj) {
