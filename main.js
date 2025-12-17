@@ -85,11 +85,18 @@ topMenuEl.addEventListener("click", (e) => {
 
     clicked.classList.add("active")
 
-    buildSubmenu(linkObj)
-    subMenu.style.top = "0"
-    requestAnimationFrame(() => {
-      subMenu.style.top = "100%"
-    })
+    console.log(subMenu.style.top)
+    if(parseInt(subMenu.style.top) == 0) {
+        buildSubmenu(linkObj)
+        subMenu.style.top = "100%"
+    }
+    else{
+        subMenu.style.top = "0"
+        setTimeout(()=>{
+            buildSubmenu(linkObj)
+            subMenu.style.top = "100%"
+        }, 550)
+    }
 })
 
 subMenu.addEventListener("click", (e) => {
