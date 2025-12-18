@@ -56,6 +56,11 @@ subMenu.style.backgroundColor = "var(--sub-menu-bg)"
 subMenu.classList.add("flex-around")
 subMenu.style.position = "absolute"
 subMenu.style.top = 0
+// gets the transition number and multiply to 1000 to get the millisecond.
+// added an extra millisecond to ensure smoothness. it sits here for less proccessing power
+const timeOutTime = parseFloat(getComputedStyle(subMenu).transition.split(' ')[1]) * 1100 
+
+
 
 const topMenuLinks = topMenuEl.querySelectorAll('a')
 topMenuEl.addEventListener("click", (e) => {
@@ -95,10 +100,11 @@ topMenuEl.addEventListener("click", (e) => {
     }
     else{
         subMenu.style.top = "0"
+        // gives time to transition the close to reopen with the new properties
         setTimeout(()=>{
             buildSubmenu(linkObj)
             subMenu.style.top = "100%"
-        }, 550)
+        }, timeOutTime)
     }
 })
 
