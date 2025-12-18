@@ -80,6 +80,7 @@ topMenuEl.addEventListener("click", (e) => {
     
     // ? after the property is called optional chaining, stops and returns undefined instead of crashing
     //  instead of linkObj && linkObj.sublinks linkObj?.subLinks works just as well
+    // Will be used in react often when collecting apis and mapping them
     // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
     if (wasActive || !linkObj?.subLinks) {
         subMenu.style.top = "0"
