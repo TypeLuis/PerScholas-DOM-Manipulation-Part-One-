@@ -67,7 +67,6 @@ topMenuEl.addEventListener("click", (e) => {
     e.preventDefault()
     if(e.target === topMenuEl) return
     const clicked = e.target
-    // console.log(e.target.text)
     if(e.target.text === "about") heading.textContent = e.target.text.toUpperCase()
     const wasActive = clicked.classList.contains("active")
 
@@ -84,7 +83,7 @@ topMenuEl.addEventListener("click", (e) => {
     const linkObj = menuLinks.find(obj => obj.text === clicked.textContent)
     
     // ? after the property is called optional chaining, stops and returns undefined instead of crashing
-    //  instead of linkObj && linkObj.sublinks linkObj?.subLinks works just as well
+    //  instead of linkObj && linkObj.sublinks, linkObj?.subLinks works just as well
     // Will be used in react often when collecting apis and mapping them
     // source: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
     if (wasActive || !linkObj?.subLinks) {
